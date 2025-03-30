@@ -2,31 +2,98 @@
 <theme>
 	<formatVersion>7</formatVersion>
 	<view name="system">
-		<video name="videobox" extra="true">
-			<path>{random}</path>
+		<!-- fix bg color -->
+		<image name="sysbg-fix" extra="true">
+			<origin>0.5 0.5</origin>
+			<pos>0.5 0.5</pos>
+			<maxSize>1 1</maxSize>
+			<scale if="${screen.ratio} == '16/10'">0.9</scale>
+			<scale if="${screen.ratio} == '4/3'">0.75</scale>
+			<path>./../../_inc/anim/custom-coll-fix.png</path>
+			<zIndex>26</zIndex>
+			<storyboard>
+				<animation property="pos" to="0.22 0.5" begin="2000" duration="1000" mode="linear"/>
+			</storyboard>
+		</image>
+		<image name="sysbg-video-arcade" extra="true">
+			<color>000000</color>
+			<path>./../../_inc/images/space.png</path>
+			<zIndex>2</zIndex>
+			<origin>0.5 0.5</origin>
+			<origin if="${screen.ratio} == '4/3'">0.5 0.35</origin>
+			<origin if="${screen.ratio} == '16/10'">0.5 0.45</origin>
+			<pos>0.49 0.42</pos>
+			<size>0.4 0.2</size>
+			<size if="${screen.ratio} == '4/3'">0.4 0.17</size>
+			<size if="${screen.ratio} == '21/9'">0.31 0.2</size>
+			<storyboard>
+				<animation property="pos" to="0.21 0.42" begin="2000" duration="1000" mode="linear"/>
+			</storyboard>
+		</image>
+		<video name="videoboxarcade" extra="true">
 			<path>./../../_inc/anim/video/${system.theme}.mp4</path>
 			<path>./../../_inc/anim/video/${synonym}.mp4</path>
 			<!-- Loads platform video from addon directory, if available -->
 			<path>./../../../ckau-book-addons/_inc/anim/video/${system.theme}.mp4</path>
 			<path>./../../../ckau-book-addons/_inc/anim/video/${synonym}.mp4</path>
-			<default>./../../_inc/anim/video/CRT_Noise.mp4</default>
-			<path>./../../_inc/anim/video/${system.theme}-${lang}.mp4</path>
 			<delay>0</delay>
 			<effect>none</effect>
 			<origin>0.5 0.5</origin>
-			<pos>0.509 0.492</pos>
-			<maxSize>0.102</maxSize>
-			<rotation>-3</rotation>
-			<zIndex>26</zIndex>
-		</video>
-		<video name="videobox2" extra="true">
-			<path>./../../_inc/anim/video/favorites2.mp4</path>
-			<delay>0</delay>
-			<effect>none</effect>
-			<origin>0.5 0.5</origin>
-			<pos>0.49 0.4929</pos>
-			<maxSize>0.555</maxSize>
+			<origin if="${screen.ratio} == '4/3'">0.5 0.35</origin>
+			<origin if="${screen.ratio} == '16/10'">0.5 0.45</origin>
+			<pos>0.495 0.42</pos>
+			<maxSize>0.383</maxSize>
 			<zIndex>25</zIndex>
+			<storyboard>
+				<animation property="pos" to="0.215 0.42" begin="2000" duration="1000" mode="linear"/>
+			</storyboard>
 		</video>
+		<text name="TextDate" extra="true">
+			<text/>
+		</text>
+		<text name="TextManufacturer" extra="true">
+			<text>Custom</text>
+			<text lang="pl">Obyczaj</text>
+			<text lang="ru">Пользовательская</text>
+			<text lang="es">Costumbre</text>
+			<text lang="fr">Coutume</text>
+			<text lang="it"></text>
+			<text lang="pt">Costume</text>
+		</text>
+		<text name="TextName" extra="true">
+			<text>Collection</text>
+			<text lang="pl">Kolekcja</text>
+			<text lang="ru">Коллекция</text>
+			<text lang="es">Recopilación</text>
+			<text lang="fr">Collection</text>
+			<text lang="it">Collezioni</text>
+			<text lang="pt">Coleção</text>
+		</text>
+		<text name="TextDesc" extra="true">
+			<text>Game Collections are a powerful way to sort your library in a different way as the default "per system" organization.
+
+The Game Collection Settings screen is available from the Main Menu.</text>
+			<text lang="pl">Kolekcje gier to potężny sposób na sortowanie biblioteki w inny sposób niż domyślna organizacja "na system".
+
+Ekran ustawień kolekcji gier jest dostępny z menu głównego.</text>
+			<text lang="ru">Коллекции игр — это мощный способ сортировки вашей библиотеки игр, отличается от стандартного способа «сортировка по системам».
+
+Экран настроек коллекции игр доступен из главного меню.</text>
+			<text lang="es">Las Colecciones de Juegos son una potente forma de ordenar tu biblioteca de una forma diferente a la organización por defecto "por sistema".
+
+La pantalla de configuración de las colecciones de juegos está disponible en el menú principal.</text>
+			<text lang="de">Spielesammlungen sind eine leistungsfähige Möglichkeit, Ihre Bibliothek auf andere Weise zu sortieren als die standardmäßige Organisation "pro System".
+
+Der Bildschirm "Einstellungen für Spielesammlungen" ist über das Hauptmenü erreichbar.</text>
+			<text lang="fr">Les collections de jeux sont un moyen puissant de trier votre bibliothèque d'une manière différente de l'organisation par défaut "par système".
+
+L'écran des paramètres de la collection de jeux est accessible à partir du menu principal.</text>
+			<text lang="it">Le collezioni di giochi sono un modo efficace per ordinare la libreria in modo diverso dall'organizzazione predefinita "per sistema".
+
+La schermata delle impostazioni delle raccolte di giochi è disponibile nel menu principale.</text>
+			<text lang="pt">Coleções de jogos são uma maneira poderosa de organizar sua biblioteca de forma diferente da organização padrão "por sistema".
+
+A tela de configurações de coleções de jogos está disponível no menu principal.</text>
+		</text>
 	</view>
 </theme>

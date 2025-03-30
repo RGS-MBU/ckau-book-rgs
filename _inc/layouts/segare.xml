@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<theme>
+	<formatVersion>7</formatVersion>
+	<view name="system">
+		<image name="sysbg-left" extra="true">
+			<origin>0.5 0.5</origin>
+			<origin if="${screen.ratio} == '4/3'">0.35 0.4</origin>
+			<origin if="${screen.ratio} == '16/10'">0.5 0.4</origin>
+			<origin if="${screen.ratio} == '21/9'">0.14 0.5</origin>
+			<pos>0.305 0.45</pos>
+			<minSize>0.1 0.3</minSize>
+			<rotation>14</rotation>
+			<path>./../../_inc/images/space.png</path>
+			<zIndex>27</zIndex>
+			<storyboard>
+				<animation property="pos" to="0.025 0.45" begin="2000" duration="1000" mode="linear"/>
+			</storyboard>
+		</image>
+		<image name="sysbg-right" extra="true">
+			<origin>0.5 0.5</origin>
+			<origin if="${screen.ratio} == '4/3'">0.64 0.4</origin>
+			<origin if="${screen.ratio} == '16/10'">0.51 0.4</origin>
+			<origin if="${screen.ratio} == '21/9'">0.86 0.5</origin>
+			<pos>0.695 0.45</pos>
+			<minSize>0.1 0.3</minSize>
+			<rotation>-14</rotation>
+			<path>./../../_inc/images/space.png</path>
+			<zIndex>27</zIndex>
+			<storyboard>
+				<animation property="pos" to="0.415 0.45" begin="2000" duration="1000" mode="linear"/>
+			</storyboard>
+		</image>
+		<image name="sysbg-video-arcade" extra="true">
+			<color>000000</color>
+			<path>./../../_inc/images/space.png</path>
+			<zIndex>2</zIndex>
+			<origin>0.5 0.5</origin>
+			<origin if="${screen.ratio} == '4/3'">0.5 0.45</origin>
+			<origin if="${screen.ratio} == '16/10'">0.5 0.48</origin>
+			<pos>0.499 0.47</pos>
+			<size>0.32 0.22</size>
+			<size if="${screen.ratio} == '4/3'">0.31 0.17</size>
+			<size if="${screen.ratio} == '21/9'">0.24 0.22</size>
+			<storyboard>
+				<animation property="pos" to="0.219 0.47" begin="2000" duration="1000" mode="linear"/>
+			</storyboard>
+		</image>
+		<video name="videoboxarcade" extra="true">
+			<path>./../../_inc/anim/video/${system.theme}.mp4</path>
+			<path>./../../_inc/anim/video/${synonym}.mp4</path>
+			<!-- Loads platform video from addon directory, if available -->
+			<path>./../../../ckau-book-addons/_inc/anim/video/${system.theme}.mp4</path>
+			<path>./../../../ckau-book-addons/_inc/anim/video/${synonym}.mp4</path>
+			<delay>0</delay>
+			<effect>none</effect>
+			<origin>0.5 0.5</origin>
+			<origin if="${screen.ratio} == '4/3'">0.5 0.44</origin>
+			<origin if="${screen.ratio} == '16/10'">0.5 0.48</origin>
+			<pos>0.4994 0.47</pos>
+			<maxSize>0.305</maxSize>
+			<zIndex>26</zIndex>
+			<storyboard>
+				<animation property="pos" to="0.2194 0.47" begin="2000" duration="1000" mode="linear"/>
+			</storyboard>
+		</video>
+		<text name="TextDate" extra="true">
+			<text>2009</text>
+		</text>
+		<text name="TextManufacturer" extra="true">
+			<text>Sega</text>
+		</text>
+		<text name="TextName" extra="true">
+			<text>Ringedge</text>
+		</text>
+		<text name="TextDesc" extra="true">
+			<text>The Sega Ringedge is an arcade platform developed by Sega as part of their Ring series (the other half being the Sega Ringwide). Both machines are based on PC architecture, using Microsoft Windows Embedded Standard 2009 as their operating system.
+
+The Ringedge supports high-definition games and 3D graphics, such as Border Break, Initial D Arcade Stage 7 AA X and Transformers: Human Alliance.</text>
+			<text lang="it">Il Sega Ringedge è una piattaforma arcade sviluppata da Sega come parte della serie Ring (l'altra metà è il Sega Ringwide). Entrambe le macchine sono basate su architettura PC e utilizzano come sistema operativo Microsoft Windows Embedded Standard 2009.
+
+Il Ringedge supporta giochi ad alta definizione e grafica 3D, come Border Break, Initial D Arcade Stage 7 AA X e Transformers: Human Alliance.</text>
+			<text lang="fr">Le Sega Ringedge est une plateforme d'arcade développée par Sega dans le cadre de la série Ring (l'autre moitié étant le Sega Ringwide). Les deux machines sont basées sur une architecture PC et utilisent le système d'exploitation Microsoft Windows Embedded Standard 2009.
+
+La Ringedge prend en charge les jeux haute définition et les graphiques 3D, tels que Border Break, Initial D Arcade Stage 7 AA X et Transformers : Human Alliance.</text>
+			<text lang="de">Der Sega Ringedge ist eine Arcade-Plattform, die von Sega als Teil der Ring-Serie entwickelt wurde (die andere Hälfte ist der Sega Ringwide). Beide Maschinen basieren auf der PC-Architektur und verwenden Microsoft Windows Embedded Standard 2009 als Betriebssystem.
+
+Die Ringedge unterstützt hochauflösende Spiele und 3D-Grafiken, wie Border Break, Initial D Arcade Stage 7 AA X und Transformers: Human Alliance.</text>
+			<text lang="es">La Sega Ringedge es una plataforma arcade desarrollada por Sega como parte de su serie Ring (la otra mitad es la Sega Ringwide). Ambas máquinas se basan en la arquitectura PC y utilizan Microsoft Windows Embedded Standard 2009 como sistema operativo.
+
+La Ringedge es compatible con juegos de alta definición y gráficos en 3D, como Border Break, Initial D Arcade Stage 7 AA X y Transformers: Human Alliance.</text>
+			<text lang="ru">Sega Ringedge - это аркадная платформа, разработанная компанией Sega в рамках серии Ring (вторая половина - Sega Ringwide). Обе машины основаны на архитектуре ПК и используют в качестве операционной системы Microsoft Windows Embedded Standard 2009.
+
+Ringedge поддерживает игры с высоким разрешением и 3D-графикой, такие как Border Break, Initial D Arcade Stage 7 AA X и Transformers: Human Alliance.</text>
+			<text lang="pl">Sega Ringedge to platforma zręcznościowa opracowana przez firmę Sega jako część serii Ring (druga połowa to Sega Ringwide). Obie maszyny oparte są na architekturze PC, wykorzystując Microsoft Windows Embedded Standard 2009 jako system operacyjny.
+
+Ringedge obsługuje gry w wysokiej rozdzielczości i grafice 3D, takie jak Border Break, Initial D Arcade Stage 7 AA X i Transformers: Human Alliance.</text>
+			<text lang="pt">Sega Ringedge é uma plataforma de arcade desenvolvida pela Sega como parte da série Ring (a outra metade é a Sega Ringwide). Ambas as máquinas são baseadas em arquitetura PC, utilizando Microsoft Windows Embedded Standard 2009 como sistema operacional.
+
+Ringedge suporta jogos em alta resolução e gráficos 3D, como Border Break, Initial D Arcade Stage 7 AA X e Transformers: Human Alliance.</text>
+		</text>
+	</view>
+</theme>

@@ -4,13 +4,25 @@ theme name:		ckau-book
 author:			Ckau
 license:		creative commons CC-BY-NC-SA
 github:			https://github.com/CkauNui/ckau-book
-originally based on:	"Carbon" by Fabrice CARUSO
+originally based on:	"Carbon" by Fabrice CARUSO (https://github.com/lbrpdx)
 originally based on:	"Art Book" by Anthony Caccese
 originally based on:	art from "Alekfull Bello v2" by fagnerpc
-originally based on:	art from "Colorful" by viking
+originally based on:	art from "Colorful" by viking (https://forums.launchbox-app.com/profile/70421-viking/)
 -->
 <theme defaultView="WallpapersHeroes">
 	<formatVersion>7</formatVersion>
+
+	<variables>
+		<fontPlayers>./_inc/fonts/players.ttf</fontPlayers>
+		<fontNameBold>./_inc/fonts/Gilroy-Bold.ttf</fontNameBold>
+		<fontNameExBold>./_inc/fonts/Gilroy-ExtraBold.ttf</fontNameExBold>
+		<fontNameReg>./_inc/fonts/Gilroy-Regular.ttf</fontNameReg>
+		<fontNameLight>./_inc/fonts/Gilroy-Light.ttf</fontNameLight>
+		<fontDescReg>./_inc/fonts/RobotoCondensed-Regular.ttf</fontDescReg>
+		<fontDescBold>./_inc/fonts/RobotoCondensed-Bold.ttf</fontDescBold>
+		<fontDescLight>./_inc/fonts/RobotoCondensed-Light.ttf</fontDescLight>
+		<fontUbuntu>./_inc/fonts/ubuntu_condensed.ttf</fontUbuntu>
+	</variables>
 
 <!-- Translations -->
 	<include>./_inc/elements/translations.xml</include>
@@ -19,31 +31,33 @@ originally based on:	art from "Colorful" by viking
 	<include>./_inc/elements/syscolors.xml</include>
 	<include>./_inc/elements/synonyms.xml</include>
 
-<!-- Цвета / Colorsets -->
-	<include subset="colorset" name="Blue" displayName="${blue}">./_inc/colors/blue.xml</include>
-	<include subset="colorset" name="Cyan" displayName="${cyan}">./_inc/colors/cyan.xml</include>
-	<include subset="colorset" name="Gray" displayName="${gray}">./_inc/colors/gray.xml</include>
-	<include subset="colorset" name="Green" displayName="${green}">./_inc/colors/green.xml</include>
-	<include subset="colorset" name="Orange" displayName="${orange}">./_inc/colors/orange.xml</include>
-	<include subset="colorset" name="Red" displayName="${red}">./_inc/colors/red.xml</include>
-	<include subset="colorset" name="Violet" displayName="${violet}">./_inc/colors/violet.xml</include>
-	<include subset="colorset" name="Yellow" displayName="${yellow}">./_inc/colors/yellow.xml</include>
+<!-- Цвета меню / Menu Color -->
+	<subset name="colorset" displayName="${subset.colorset}">
+		<include name="Blue" displayName="${blue}">./_inc/colors/blue.xml</include>
+		<include name="Cyan" displayName="${cyan}">./_inc/colors/cyan.xml</include>
+		<include name="Gray" displayName="${gray}">./_inc/colors/gray.xml</include>
+		<include name="Green" displayName="${green}">./_inc/colors/green.xml</include>
+		<include name="Orange" displayName="${orange}">./_inc/colors/orange.xml</include>
+		<include name="Red" displayName="${red}">./_inc/colors/red.xml</include>
+		<include name="Violet" displayName="${violet}">./_inc/colors/violet.xml</include>
+		<include name="Yellow" displayName="${yellow}">./_inc/colors/yellow.xml</include>
+	</subset>
 
 <!-- Меню / Menu -->
 	<view name="menu">
 		<menuText name="menutitle">
-			<fontPath>./_inc/fonts/ubuntu_condensed.ttf</fontPath>
+			<fontPath>${fontNameBold}</fontPath>
 			<fontSize>0.035</fontSize>
 			<color>FAFAFA</color>
 		</menuText>
 		<menuText name="menufooter">
-			<fontPath>./_inc/fonts/ubuntu_condensed.ttf</fontPath>
+			<fontPath>${fontNameReg}</fontPath>
 			<fontSize>0.02</fontSize>
 			<color>777777FF</color>
 		</menuText>
 		<menuText name="menutext" extra="true" tinyScreen="false">
-			<fontPath>./_inc/fonts/ubuntu_condensed.ttf</fontPath>
-			<fontSize>0.028</fontSize>
+			<fontPath>${fontDescReg}</fontPath>
+			<fontSize>0.026</fontSize>
 			<color>969696</color>
 			<!-- <separatorColor>202020</separatorColor> -->
 			<separatorColor>363636FF</separatorColor>
@@ -53,12 +67,12 @@ originally based on:	art from "Colorful" by viking
 			<selectorGradientType>horizontal</selectorGradientType>
 		</menuText>
 		<menuTextSmall name="menutextsmall" extra="true" tinyScreen="false">
-			<fontPath>./_inc/fonts/ubuntu_condensed.ttf</fontPath>
+			<fontPath>${fontDescReg}</fontPath>
 			<fontSize>0.02</fontSize>
 			<color>${groupColor}</color>
 		</menuTextSmall>
 		<menuGroup name="menugroup">
-			<fontPath>./_inc/fonts/ubuntu_condensed.ttf</fontPath>
+			<fontPath>${fontNameBold}</fontPath>
 			<fontSize>0.02</fontSize>
 			<color>${groupColor}</color>
 			<backgroundColor>00000000</backgroundColor>
@@ -108,13 +122,13 @@ originally based on:	art from "Colorful" by viking
 <!-- Clock, gamepad icons, battery indicator -->
 	<view name="screen">
 		<text name="clock">
-			<color>777777FF</color>
 			<fontSize>0.025</fontSize>
-			<pos>0.90 0.945</pos>
+			<pos>0.925 0.945</pos>
 			<size>0.09 0.058</size>
-			<alignment>right</alignment>
+			<alignment>center</alignment>
 			<verticalAlignment>center</verticalAlignment>
-			<fontPath>./_inc/fonts/ubuntu_condensed.ttf</fontPath>
+			<fontPath>${fontDescReg}</fontPath>
+			<lineSpacing>1</lineSpacing>
 		</text>
 		<controllerActivity name="controllerActivity">
 			<pos>0.005 0.005</pos>
@@ -144,95 +158,145 @@ originally based on:	art from "Colorful" by viking
 	</view>
 
 	<view name="system">
-		<text name="systemInfo" extra="static">
+		<text ifSubset="showgamescount:yes" name="systemInfo" extra="static">
 			<backgroundColor>14141400</backgroundColor>
 			<color>777777FF</color>
-			<fontPath>./_inc/fonts/ubuntu_condensed.ttf</fontPath>
-			<pos>0.85 0.945</pos>
-			<size>0.09 0.058</size>
+			<fontPath>${fontDescReg}</fontPath>
+			<pos>0.84 0.945</pos>
+			<pos if="${screen.ratio} == '21/9'">0.85 0.945</pos>
+			<size>0.10 0.058</size>
 			<alignment>right</alignment>
 			<fontSize>0.025</fontSize>
-			<zIndex>110</zIndex>
+			<zIndex>93</zIndex>
+		</text>
+		<!-- Move gamecount to the right if the clock is disabled -->
+		<text ifSubset="showgamescount:yes" if="${global.clock} == 'false'" name="systemInfo" extra="static">
+			<pos>0.89 0.945</pos>
+			<pos if="${screen.ratio} == '21/9'">0.9 0.945</pos>
 		</text>
 		<carousel name="systemcarousel">
 			<color>00000000</color>
 			<scrollSound>./_inc/sound/scroll.wav</scrollSound>
 			<defaultTransition>instant</defaultTransition>
 		</carousel>
-		<image name="art" extra="static">
+		<!-- <image name="art" extra="static">
 			<origin>0 0</origin>
 			<pos>0 0</pos>
 			<size>1 1</size>
 			<path>./_inc/images/overlay.png</path>
 			<zIndex>100</zIndex>
-		</image>
+		</image> -->
+
 		<text name="logoText">
-			<fontPath>./_inc/fonts/ubuntu_condensed.ttf</fontPath>
+			<fontPath>${fontDescReg}</fontPath>
 			<color>${baseColor}</color>
 			<forceUppercase>true</forceUppercase>
 		</text>
 
-<!-- 		<image name="logo">
-
-			<path>./_inc/logos/${system.theme}.png</path>
-
-			<path>./_inc/logos/${system.theme}.svg</path>
-
-			<path>./_inc/logos/${system.theme}-${lang}.png</path>
-			<path>./_inc/logos/${system.theme}-${lang}.svg</path>
-			<linearSmooth>true</linearSmooth>
-		</image>
-
-		<image name="logo" region="eu"></image>
-		<image name="logo" region="us">
-			<path>./_inc/logos/us/${system.theme}.png</path>
-			<path>./_inc/logos/us/${system.theme}.svg</path>
-		</image>
-		
-		<image name="logo" region="jp">
-		  <path>./_inc/logos/jp/${system.theme}.png</path>
-			<path>./_inc/logos/jp/${system.theme}.svg</path>
-		</image>-->
-		
+<!-- Custom music for systems -->
 		<sound name="bgsound">
 			<path>./_inc/music/${system.theme}.ogg</path>
 			<path>./_inc/music/${system.theme}.wav</path>
 			<path>./_inc/music/${system.theme}.mp3</path>
 		</sound>
-<!-- 		<text name="TextDesc" extra="true" tinyScreen="false">
-			<size>0.5 0.5</size>
-			<autoScroll>vertical</autoScroll>
-			<verticalAlignment>top</verticalAlignment>
-		</text> -->
 	</view>
 
-<!-- System views -->
-	<include subset="systemview" name="Wheel (anim)" displayName="${swheelanim}">./_inc/systemviews/wheel_anim.xml</include>
-	<include subset="systemview" name="Wheel" displayName="${swheel}">./_inc/systemviews/wheel.xml</include>
-	<include subset="systemview" name="Wheel Left (anim)" displayName="${swheelleftanim}">./_inc/systemviews/wheel_left_anim.xml</include>
-	<include subset="systemview" name="Wheel Left" displayName="${swheelleft}">./_inc/systemviews/wheel_left.xml</include>
-	<include subset="systemview" name="Simple (anim)" displayName="${ssimple}">./_inc/systemviews/simple.xml</include>
-	<include subset="systemview" name="Vertical (anim)" displayName="${sverticalanim}">./_inc/systemviews/vertical_anim.xml</include>
-	<include subset="systemview" name="Vertical" displayName="${svertical}">./_inc/systemviews/vertical.xml</include>
-	<include subset="systemview" name="Vertical Left (anim)" displayName="${sverticalleftanim}">./_inc/systemviews/vertical_left_anim.xml</include>
-	<include subset="systemview" name="Vertical Left" displayName="${sverticalleft}">./_inc/systemviews/vertical_left.xml</include>
-	<include subset="systemview" name="Horizontal" displayName="${shorizontal}">./_inc/systemviews/horizontal.xml</include>
-	<include subset="systemview" name="Horizontal (anim)" displayName="${shorizontalanim}">./_inc/systemviews/horizontal_anim.xml</include>
-	<include subset="systemview" name="Center" displayName="${scenter}">./_inc/systemviews/center.xml</include>
+<!-- Systems logos type -->
+	<subset name="systemview" displayName="${subset.systemview}">
+	<include name="Wheel (anim)" displayName="${swheelanim}">./_inc/systemviews/wheel_anim.xml</include>
+	<include name="Wheel" displayName="${swheel}">./_inc/systemviews/wheel.xml</include>
+	<include name="Wheel Left (anim)" displayName="${swheelleftanim}">./_inc/systemviews/wheel_left_anim.xml</include>
+	<include name="Wheel Left" displayName="${swheelleft}">./_inc/systemviews/wheel_left.xml</include>
+	<include name="Simple (anim)" displayName="${ssimple}">./_inc/systemviews/simple.xml</include>
+	<include name="Vertical (anim)" displayName="${sverticalanim}">./_inc/systemviews/vertical_anim.xml</include>
+	<include name="Vertical" displayName="${svertical}">./_inc/systemviews/vertical.xml</include>
+	<include name="Vertical Left (anim)" displayName="${sverticalleftanim}">./_inc/systemviews/vertical_left_anim.xml</include>
+	<include name="Vertical Left" displayName="${sverticalleft}">./_inc/systemviews/vertical_left.xml</include>
+	<include name="Horizontal" displayName="${shorizontal}">./_inc/systemviews/horizontal.xml</include>
+	<include name="Horizontal (anim)" displayName="${shorizontalanim}">./_inc/systemviews/horizontal_anim.xml</include>
+	<include name="Center" displayName="${scenter}">./_inc/systemviews/center.xml</include>
+	</subset>
 
 <!-- System backgrounds -->
-	<include subset="systembackground" name="Colorful (anim)" displayName="${ColorfulAnim}">./_inc/systemviews/animate.xml</include>
-	<include subset="systembackground" name="Colorful (anim, transparent)" displayName="${ColorfulAnimTransparent}">./_inc/systemviews/animatetransparent.xml</include>
-	<include subset="systembackground" name="Colorful (no anim)" displayName="${ColorfulNoAnim}">./_inc/systemviews/noanimate.xml</include>
-	<include subset="systembackground" name="Colorful (no anim/video)" displayName="${ColorfulNoAnimNoVideo}">./_inc/systemviews/noanimatenovideo.xml</include>
-	<include subset="systembackground" name="Darkful (anim)" displayName="${DarkfulAnim}">./_inc/systemviews/animatedark.xml</include>
-	<include subset="systembackground" name="Darkful (no anim)" displayName="${DarkfulNoAnim}">./_inc/systemviews/noanimatedark.xml</include>
-	<include subset="systembackground" name="Darkful (no anim/video)" displayName="${DarkfulNoAnimNoVideo}">./_inc/systemviews/noanimatenovideodark.xml</include>
-	<include subset="systembackground" name="Consoles" displayName="${Art_169}">./_inc/systemviews/art_169.xml</include>
+	<subset name="systembackground" displayName="${subset.systembackground}">
+	<include name="Colorful (anim)" displayName="${ColorfulAnim}">./_inc/systemviews/animate.xml</include>
+	<include name="Colorful (no anim)" displayName="${ColorfulNoAnim}">./_inc/systemviews/noanimate.xml</include>
+	<include name="Colorful (no anim/video)" displayName="${ColorfulNoAnimNoVideo}">./_inc/systemviews/noanimatenovideo.xml</include>
+	<include name="Colorful (anim, sidebar)" displayName="${ColorfulAnimTransparent}">./_inc/systemviews/animatetransparent.xml</include>
+	<include name="Colorful (grid / WIP)" displayName="${ColorfulGrid}">./_inc/systemviews/grid.xml</include>
+	<include name="Consoles" displayName="${Art_169}">./_inc/systemviews/art_169.xml</include>
 	<include subset="systembackground" name="Wallpapers" displayName="${Art2_169}">./_inc/systemviews/art2_169.xml</include>
-	<include subset="systembackground" name="Cinematic FullScreen" displayName="${CV1}">./_inc/systemviews/cinematic.xml</include>
-	<include subset="systembackground" name="Cinematic Static" displayName="${CV2}">./_inc/systemviews/cinematic_static.xml</include>
+	<include name="Cinematic FullScreen" displayName="${CV1}">./_inc/systemviews/cinematic.xml</include>
+	<include name="Cinematic Static" displayName="${CV2}">./_inc/systemviews/cinematic_static.xml</include>
+	</subset>
 
+<!-- Subset option for system bg color (need higher "System backgrounds" for work noanimate) -->
+	<subset name="sysbgcolor" displayName="${subset.sysbgcolor}">
+	<include name="Colorful" displayName="${sysbgcolorColorful}">./_inc/systemcolors/colorful.xml</include>
+	<include name="Darkful" displayName="${sysbgcolorDarkful}">./_inc/systemcolors/darkful.xml</include>
+	<include name="Blackful" displayName="${sysbgcolorBlackful}">./_inc/systemcolors/blackful.xml</include>
+	<include name="Lightful" displayName="${sysbgcolorLightful}">./_inc/systemcolors/lightful.xml</include>
+	<include name="Greyful" displayName="${sysbgcolorGreyful}">./_inc/systemcolors/greyful.xml</include>
+	</subset>
+
+<!-- Game views -->
+	<include>./_inc/views/basic.xml</include>
+	<include>./_inc/views/detailed.xml</include>
+	<include>./_inc/views/Detailed Dark.xml</include>
+	<include>./_inc/views/Detailed No Video.xml</include>
+	<include>./_inc/views/gamecarousel.xml</include>
+	<include>./_inc/views/DetailedWheel.xml</include>
+	<include>./_inc/views/gamecarousel No Boxart.xml</include>
+	<include>./_inc/views/grid.xml</include>
+	<include>./_inc/views/Grid + Details.xml</include>
+	<include>./_inc/views/Grid + Details + Marquee.xml</include>
+	<include>./_inc/views/Grid + Fanart.xml</include>
+	<include>./_inc/views/Modern Grid.xml</include>
+	<include>./_inc/views/Logo + Details.xml</include>
+	<include>./_inc/views/Wallpapers.xml</include>
+	<include>./_inc/views/WallpapersCarousel.xml</include>
+	<include>./_inc/views/WallpapersHeroes.xml</include>
+	<include>./_inc/views/VideoFull.xml</include>
+	<include>./_inc/views/Carousel.xml</include>
+	<include>./_inc/views/Carousel + Details.xml</include>
+	<include>./_inc/views/Carousel + Details + Marquee.xml</include>
+	<include>./_inc/views/Carousel + Fanart.xml</include>
+	<include>./_inc/views/Tiles.xml</include>
+	<include>./_inc/views/Tiles + Video.xml</include>
+	<include>./_inc/views/Icons.xml</include>
+	<include>./_inc/views/Colorful (vertically).xml</include>
+	<include>./_inc/views/Colorful + Gamelist (vertically).xml</include>
+	<include>./_inc/views/Colorful (horizontally).xml</include>
+	<include>./_inc/views/Colorful + Gamelist (horizontally).xml</include>
+	<include>./_inc/views/Colorful + Gamelist (horizontally 2).xml</include>
+	<include>./_inc/views/Content.xml</include>
+
+<!-- Presets -->
+	<include>./_inc/presets/${system.theme}.xml</include>
+
+<!-- Color option for gameviews (need place bottom "Game views" and "Presets")-->
+	<subset name="gamelistbgcolor" displayName="${subset.gamelistbgcolor}">
+		<include name="Default" displayName="${defaultbg}"/>
+		<include name="Dynamic" displayName="${dynamicbg}">./_inc/systemcolors/dynamic.xml</include>
+	</subset>
+
+<!-- Subset option for showing number of games in Colorful -->
+	<subset name="showgamescount" displayName="${subset.showgamescount}">
+		<include name="yes" displayName="${yes}"/>
+		<include name="no" displayName="${no}"/>
+	</subset>
+
+<!-- Subset option for Hotheys Help Image -->
+	<subset name="hotkey-help" displayName="${theme.hotkey}">
+		<include name="yes" displayName="${yes}"/>
+		<include name="no" displayName="${no}"/>
+	</subset>
+
+<!-- Subset option for blur effects -->
+	<subset name="blurfx" displayName="${subset.blurfx}" ifArch="windows,x86_64" tinyScreen="false">
+		<include name="yes" displayName="${yes}">./_inc/fx/blurfx.xml</include>
+		<include name="no" displayName="${no}"/>
+	</subset>
 
 <!-- Animated gamelist logo on/off -->
 	<subset name="gamelist_logo" displayName="${gamelist_logo}">
@@ -248,43 +312,6 @@ originally based on:	art from "Colorful" by viking
 		<include name="Off" displayName="${off_arrows}"></include>
 	</subset>
 
-<!-- Game views -->
-	<include>./_inc/views/basic.xml</include>
-	<include>./_inc/views/detailed.xml</include>
-	<include>./_inc/views/Detailed Dark.xml</include>
-	<include>./_inc/views/Detailed No Video.xml</include>
-	<include>./_inc/views/gamecarousel.xml</include>
-	<include>./_inc/views/DetailedWheel.xml</include>
-	<include>./_inc/views/gamecarousel No Boxart.xml</include>
-	<include>./_inc/views/grid.xml</include>
-	<include>./_inc/views/Grid + Details.xml</include>
-	<include>./_inc/views/Grid + Details + Marquee.xml</include>
-	<include>./_inc/views/Grid + Fanart.xml</include>
-	<include>./_inc/views/Logo + Details.xml</include>
-	<include>./_inc/views/Wallpapers.xml</include>
-	<include>./_inc/views/WallpapersCarousel.xml</include>
-	<include>./_inc/views/WallpapersHeroes.xml</include>
-	<include>./_inc/views/VideoFull.xml</include>
-	<include>./_inc/views/Carousel.xml</include>
-	<include>./_inc/views/Carousel + Details.xml</include>
-	<include>./_inc/views/Carousel + Details + Marquee.xml</include>
-	<include>./_inc/views/Carousel + Fanart.xml</include>
-	<include>./_inc/views/Tiles.xml</include>
-	<include>./_inc/views/Tiles + Video.xml</include>
-	<include>./_inc/views/Icons.xml</include>
-	<include>./_inc/views/Colorful (vertically).xml</include>
-	<include>./_inc/views/Colorful + Gamelist (vertically).xml</include>
-	<include>./_inc/views/Colorful + Wheel Left (vertically).xml</include>
-	<include>./_inc/views/Colorful + Wheel Right (vertically).xml</include>
-	<include>./_inc/views/Colorful (horizontally).xml</include>
-	<include>./_inc/views/Colorful + Gamelist (horizontally).xml</include>
-	<include>./_inc/views/Colorful + Gamelist (horizontally 2).xml</include>
-	<include>./_inc/views/Colorful + Wheel Left (horizontally).xml</include>
-	<include>./_inc/views/Colorful + Wheel Right (horizontally).xml</include>
-
-<!-- Presets -->
-	<include>./_inc/presets/${system.theme}.xml</include>
-
 <!-- Game views (common elements) -->
 	<view name="basic,detailed,grid,gamecarousel">
 		<image name="logo">
@@ -297,9 +324,13 @@ originally based on:	art from "Colorful" by viking
 
 			<path>./_inc/logos/${system.theme}-${lang}.png</path>
 			<path>./_inc/logos/${system.theme}-${lang}.svg</path>
+		<!-- Logos for Collections -->
+			<path>./_inc/logos/collections/${system.theme}.png</path>
+			<path>./_inc/logos/collections/${system.theme}.svg</path>
+			<path>./_inc/logos/collections/${system.theme}-w.svg</path>
 			<linearSmooth>true</linearSmooth>
 		</image>
-
+	<!-- Regional consoles/computers -->
 		<image name="logo" region="eu"></image>
 		<image name="logo" region="us">
 			<path>./_inc/logos/us/${system.theme}.png</path>
@@ -312,43 +343,6 @@ originally based on:	art from "Colorful" by viking
 			<path>./_inc/logos/jp/${system.theme}.svg</path>
 			<path>./_inc/logos/jp/${system.theme}-w.svg</path>
 		</image>
-		
-		<!--<helpsystem name="help">
-			<pos>1 1</pos>
-		</helpsystem>
-		<text name="LaunchButton" extra="true">
-			<text>LAUNCH</text>
-			<text lang="pl">URUCHOM</text>
-			<text lang="fr">LANCER</text>
-			<text lang="de">STARTEN</text>
-			<text lang="ru">ЗАПУСК</text>
-			<fontPath>./_inc/fonts/ubuntu_condensed.ttf</fontPath>
-			<color>666666</color>
-			<fontSize>0.025</fontSize>
-			<zIndex>110</zIndex>
-		</text>
-		<text name="FavoriteButton" extra="true">
-			<text>FAVORITE</text>
-			<text lang="pl">DO ULUBIONYCH</text>
-			<text lang="fr">FAVORI</text>
-			<text lang="de">LIEBLINGS</text>
-			<text lang="ru">ИЗБРАННОЕ</text>
-			<fontPath>./_inc/fonts/ubuntu_condensed.ttf</fontPath>
-			<color>666666</color>
-			<fontSize>0.025</fontSize>
-			<zIndex>110</zIndex>
-		</text>
-		<text name="RandomButton" extra="true">
-			<text>SETTINGS</text>
-			<text lang="pl">USTAWIENIA</text>
-			<text lang="fr">PARAMÈTRES</text>
-			<text lang="de">DIE EINSTELLUNGEN</text>
-			<text lang="ru">НАСТРОЙКИ</text>
-			<fontPath>./_inc/fonts/ubuntu_condensed.ttf</fontPath>
-			<color>666666</color>
-			<fontSize>0.025</fontSize>
-			<zIndex>110</zIndex>
-		</text>-->
 	</view>
 
 <!-- Buttons -->
@@ -357,13 +351,15 @@ originally based on:	art from "Colorful" by viking
 		<include name="xboxbuttons" displayName="${xboxbuttons}">./_inc/help/xboxbuttons.xml</include>
 		<include name="psxbuttons" displayName="${psxbuttons}">./_inc/help/psxbuttons.xml</include>
 		<include name="psxbuttons_color" displayName="${psxbuttons_color}">./_inc/help/psxbuttons_color.xml</include>
+		<include name="ps5buttons" displayName="${ps5buttons}">./_inc/help/ps5buttons.xml</include>
+		<include name="oculusbuttons" displayName="${oculusbuttons}">./_inc/help/oculus.xml</include>
 		<include name="arcadebuttons" displayName="${arcadebuttons}">./_inc/help/arcadebuttons.xml</include>
 		<include name="ninbuttons" displayName="${ninbuttons}">./_inc/help/nintendo.xml</include>
 		<include name="standard" displayName="${stbuttons}">./_inc/help/default.xml</include>
 	</subset>
 
 <!-- Icon animations in gameviews -->
-	<customView name="Colorful + Wheel Right (horizontally), Colorful + Wheel Left (horizontally), Colorful + Gamelist (horizontally), Colorful + Gamelist (horizontally 2), Colorful (horizontally), Colorful + Wheel Right (vertically), Colorful + Wheel Left (vertically), Colorful + Gamelist (vertically), Colorful (vertically)">
+<!-- 	<customView name="Colorful + Wheel Right (horizontally), Colorful + Wheel Left (horizontally), Colorful + Gamelist (horizontally), Colorful + Gamelist (horizontally 2), Colorful (horizontally), Colorful + Wheel Right (vertically), Colorful + Wheel Left (vertically), Colorful + Gamelist (vertically), Colorful (vertically)">
 			<image name="gametime_logo,genre_logo,developer_logo,playcount_logo,publisher_logo,release_date_logo,md_kidgame,md_notkidgame,md_hidden,md_savestate,md_nosavestate,md_cheevos,md_notcheevos,md_manual,md_nomanual,md_flag">
 				<storyboard>
 					<animation property="opacity" to="0" begin="0" duration="0" mode="linear"/>
@@ -389,16 +385,7 @@ originally based on:	art from "Colorful" by viking
 					<animation property="opacity" from="0" to="1" begin="1500" duration="2000" mode="EaseIn"/>
 				</storyboard>
 			</rating>
-	</customView>
-
-<!-- Description limitation -->
-	<view name="system">
-		<text name="TextDesc" extra="true" tinyScreen="false">
-			<size>0.5 0.55</size>
-			<autoScroll>vertical</autoScroll>
-			<verticalAlignment>top</verticalAlignment>
-		</text>
-	</view>
+	</customView> -->
 
 <!-- Custom scroll sound -->
 	<include>./_inc/views/ScrollSound.xml</include>
