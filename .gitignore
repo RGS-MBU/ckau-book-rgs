@@ -76,3 +76,5 @@ $RECYCLE.BIN/
 *.backup
 README.md.backup
 *.py
+_inc/views/
+theme.xml
